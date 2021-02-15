@@ -1,1 +1,6 @@
 discord.py[voice]>=1.4.1
+wikipedia==1.4.0
+requests==2.21.0
+urllib==1.22
+requests==2.0.1
+beautifulsoup4==4.6.0
