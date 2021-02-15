@@ -1,34 +1,25 @@
-from discord.ext import commands
-import os
-import traceback
+import discord
+import wikipedia
+import requests
+import json
+import random
 
-bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
+client = discord.Client()
+TOKEN = "ここにトークンを書いてね"
 
-@bot.event
+@client.event
 async def on_ready():
     print('Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
+    print(client.user.name)
+    print(client.user.id)
     print('------')
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-@bot.event
+@client.event
 async def on_message(message):
     # 「雲さん」で始まるか調べる
     if message.content.startswith("雲さん"):
         # 送り主がBotだった場合反応したくないので
-        if bot.user != message.author:
+        if client.user != message.author:
             try:
                 user_name = message.author.name
                 text = message.content
@@ -65,7 +56,7 @@ async def on_message(message):
                 else:
                     msg += 'その言葉は知らなかったから調べたよ。\n' + wikipediaSearch(text)
                 # メッセージが送られてきたチャンネルへメッセージを送ります
-                await bot.send_message(message.channel, msg)
+                await client.send_message(message.channel, msg)
                 return msg
             except Exception as e:
                 print(e)
@@ -195,4 +186,4 @@ def primarity_test(text, k):
         response_string = str(q) + 'は素数です！:wink:'
     return response_string
 
-bot.run(token)
+client.run(TOKEN)
