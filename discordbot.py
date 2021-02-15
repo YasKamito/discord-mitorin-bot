@@ -1,4 +1,5 @@
 import discord
+import os
 import wikipedia
 import requests
 import json
