@@ -5,7 +5,7 @@ import json
 import random
 
 client = discord.Client()
-TOKEN = "ここにトークンを書いてね"
+TOKEN = "ODEwODU4Mzk4MTA3MTcyODc1.YCpwuw.1FG0suH1800Ul5be7e4iZRTpl6Y"
 
 @client.event
 async def on_ready():
