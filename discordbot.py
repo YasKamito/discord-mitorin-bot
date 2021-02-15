@@ -57,7 +57,7 @@ async def on_message(message):
                 else:
                     msg += 'その言葉は知らなかったから調べたよ。\n' + wikipediaSearch(text)
                 # メッセージが送られてきたチャンネルへメッセージを送ります
-                await client.send_message(message.channel, msg)
+                await message.channel.send(msg)
                 return msg
             except Exception as e:
                 print(e)
