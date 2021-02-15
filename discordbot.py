@@ -5,7 +5,7 @@ import json
 import random
 
 client = discord.Client()
-TOKEN = "ODEwODU4Mzk4MTA3MTcyODc1.YCpwuw.1FG0suH1800Ul5be7e4iZRTpl6Y"
+TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
 @client.event
 async def on_ready():
