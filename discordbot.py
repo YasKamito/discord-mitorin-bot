@@ -31,18 +31,21 @@ async def on_message(message):
                 kumo_san = '╭◜◝ ͡ ◜◝╮ \n(   •ω•　  ) \n╰◟◞ ͜ ◟◞╯ < '
                 ################# Don't touch. ################
 
-                msg =  kumo_san + user_name + 'さん '
-                #msg = user_name + 'さん '
+                msg =  kumo_san
 
                 if text == ('mitorin'):
                     msg = 'はい！ご用でしょうか！'
                 elif text.find('おは') > -1:
+                    msg +=  user_name + 'さん '
                     msg += 'おはようございます！'
                 elif text.find('こんにちは') > -1 or text.find('こんちゃ') > -1 or text.find('やあ') > -1 or text.find('おっす') > -1:
+                    msg +=  user_name + 'さん '
                     msg += 'こんにちは！'
                 elif text.find('こんばん') > -1 or text.find('ばんわ') > -1:
+                    msg +=  user_name + 'さん '
                     msg += 'こんばんは！'
                 elif text.find('おつ') > -1 or text.find('疲') > -1 or text.find('お先') > -1 or text.find('おち') > -1 or text.find('落ち') > -1:
+                    msg +=  user_name + 'さん '
                     msg += 'おつかれさまです〜'
                 elif text.find('起動') > -1 or text.find('スタート') > -1 or text.find('開始') > -1 or text.find('立ち上げて') > -1:
                     msg += postStartServer(text)
